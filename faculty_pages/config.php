@@ -5,7 +5,8 @@
   define('_DATABASE_PASSWORD','');
 $con = new MySQLi(_HOST_NAME,_DATABASE_USER_NAME,_DATABASE_PASSWORD,_DATABASE_NAME);
    if($con->connect_errno)
-   {
+   {	
+   		console.log($con->connect_error);
        die("ERROR : -> ".$con->connect_error);
    }
 ?>
