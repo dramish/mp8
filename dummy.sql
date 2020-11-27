@@ -228,8 +228,7 @@ CREATE TABLE `login_faculty` (
   `password` varchar(100) NOT NULL,
   `sec_ques` varchar(10000) NOT NULL,
   `sques_ans` varchar(100) NOT NULL,
-  `image` varchar(1000) NOT NULL,
-  `link` varchar(10) NOT NULL
+  `image` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
