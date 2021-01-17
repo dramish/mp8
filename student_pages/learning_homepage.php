@@ -159,18 +159,21 @@ font-size:25px;
     <p>(Established by Govt. of Delhi vide Act 9 of 2012)</p>
   </div>
   <div class="navbar" id="myTopnav">
+
+
+
     <a class="active" href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-    <a href="learning_homepage.php"><i class="fa fa-user  fa-home"></i> Home</a>
-    
-        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Documents </a>
+    <a href="module_page.php"><i class="fa fa-user  fa-home"></i> Home</a>
+    <a href="student_assignments_page.php"><i class="fa fa-download" aria-hidden="true"></i>Assignments</a>
     <a href="stu_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
+<!--     <a href="student_quiz_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>
+    OG Tests and Quizzes</a> -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i>
-        <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-        <a href="module_page.php"><i class="fa fa-user  fa-home"></i> Home</a>
-        <a href="student_assignments_page.php"><i class="fa fa-download" aria-hidden="true"></i>Assignments</a>
-        <a href="student_quiz_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>Tests and Quizzes</a>
+       
   </a>
       </div>
+      
+
       <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -185,7 +188,7 @@ function myFunction() {
       <h1>LEARNING AND TEST MODULE</h1>
         <div class = "adminpanel">
           <h2>Welcome to Student Panel</h2>
-          <p>You can download learning materials such as assignments , ppts , notes , submit assignments and take test from here....</p>
+          <p>You can download, upload and manage the uploaded assignments and teake tests/ quizzes</p>
         </div>
       </div>
       </div>

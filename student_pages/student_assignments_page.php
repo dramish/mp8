@@ -170,13 +170,17 @@ font-size:25px;
     <div class="navbar">
     <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
         <a href="learning_homepage.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
-        <a href="student_manage_assignment.php"><i class="fa fa-home" aria-hidden="true"></i> Manage Assignments</a> 
+        <a href="download_resources.php"><i class="fa fa-home" aria-hidden="true"></i> Download Assgn</a> 
+        <a href="stu_upload_ass.php"><i class="fa fa-home" aria-hidden="true"></i> Upload Assgn</a> 
+         <a href="view_ass.php"><i class="fa fa-home" aria-hidden="true"></i> Manage uploaded assgn</a> 
+
+<!--         <a href="student_manage_assignment.php"><i class="fa fa-home" aria-hidden="true"></i> Manage Assignments</a>  -->
       </div>
 
       <div class="main">
-        <h1>Student Panel</h1>
+        <h1>Assignment Module</h1>
           <div class = "adminpanel">
-            <h2>Welcome to Student Panel </h2>
+            <h2>Assignments management</h2>
             <?php
             $a=$_SESSION['Email'];
             echo $a;

@@ -169,7 +169,7 @@ font-size:25px;
     </div>
     <div class="navbar" id="myTopnav">
     <a class="active" href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-        <a href="stu_home.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a href="learning_homepage.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
         <a href="stu_viewtest.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Take a test</a>
         <a href="result.php"><i class="fa fa-certificate"></i> View Result</a>
         <a href="logout.php"><i class="fa fa-sign-out  fa-logout"></i> Logout</a>
@@ -188,9 +188,9 @@ function myFunction() {
 }
 </script>
       <div class="main">
-        <h1>Student Panel</h1>
+        <h1>Quiz and Test</h1>
           <div class = "adminpanel">
-            <h2>Welcome to Student Panel </h2>
+            <h2>Quiz and Tests</h2>
             <?php
             $a=$_SESSION['Email'];
             echo $a;

@@ -178,12 +178,11 @@ th {
   
   
   <div class="navbar" id="myTopnav">
-    <a class="active" href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-    <a href="learning_homepage.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="download_resources.php"><i class="fa fa-download" aria-hidden="true"></i> Download learning material</a> 
-    <a href="stu_upload_ass.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Documents </a>
-        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Documents </a>
-    <a href="stu_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
+    <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
+        <a href="student_assignments_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
+        <a href="download_resources.php"><i class="fa fa-home" aria-hidden="true"></i> Download Assgn</a> 
+        <a href="stu_upload_ass.php"><i class="fa fa-home" aria-hidden="true"></i> Upload Assgn</a> 
+         <a href="view_ass.php"><i class="fa fa-home" aria-hidden="true"></i> Manage uploaded assgn</a> 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
   </a>
