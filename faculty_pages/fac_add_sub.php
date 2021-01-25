@@ -300,21 +300,38 @@ if(isset($_POST["sub"]) or isset($_POST["add"]))
   $query = "INSERT INTO subject VALUES ('', '$sc', '$sn', '$tid', '$tn', '$b')";
   $row= mysqli_query($con,$query);
 
-  
-
-  $query1 = "INSERT INTO coursedetails VALUES ('$p', '$b', '$sem', '$tid', '$sc')";
+    $query1 = "INSERT INTO coursedetails VALUES ('$p', '$b', '$sem', '$tid', '$sc')";
   $row1= mysqli_query($con,$query1);
 
     if($row > 0 && $row1> 0)
     {
+
+$result = mysqli_query($con,"SELECT login_student.program, login_student.branch, login_student.semester, rollno from login_student WHERE login_student.branch = '$b' AND login_student.program = '$p' AND login_student.semester = '$sem' ORDER BY login_student.branch") or die('Error2');
+
+while($row = mysqli_fetch_array($result)) {
+  
+$program = $row['program'];
+$branch = $row['branch'];
+$semester = $row['semester'];
+$roll = $row['rollno'];
+
+$que= mysqli_query($con, "SELECT * FROM attendance WHERE tid='$tid' AND rollno='$roll'");
+if($data=mysqli_fetch_array($que))
+    {
+             continue;
+}else{
+  $query="INSERT into attendance VALUES ('$program','$branch','$semester','$roll', '$tid', 0)";
+    $w=mysqli_query($con, $query) or die('Error3');
+  }
+
     echo "<script>alert('Subjects and Course successfully registerd.');</script>";
     }
+  }
     else
     {
     echo "<script>alert('Unsuccessful');</script>";
     }
  
-}
 
 
   if(isset($_POST["sub"]))

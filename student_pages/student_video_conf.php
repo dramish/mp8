@@ -1,41 +1,3 @@
-<!-- <head>
-  <script src='https://meet.jit.si/external_api.js'></script>
-</head>
-<body>
-
-<button id="start" type="button">Start</button>
-<div id="jitsi-container">
-</div>
-
-<script>
-var button = document.querySelector('#start');
-var container = document.querySelector('#jitsi-container');
-var api = null;
-
-button.addEventListener('click', () => {
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var stringLength = 30;
-
-    function pickRandom() {
-    return possible[Math.floor(Math.random() * possible.length)];
-    }
-
-var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
-
-    var domain = "meet.jit.si";
-    var options = {
-        "roomName": randomString,
-        "parentNode": container,
-        "width": 600,
-        "height": 600,
-    };
-    api = new JitsiMeetExternalAPI(domain, options);
-});
-
-</script>
-</body>
-</html> -->
-
 <?php
 include('config.php');
 session_start();
@@ -305,13 +267,13 @@ $sId=$_SESSION['email'];
 while($row = mysqli_fetch_array($result)) {
   $name = $row['tid'];
 
-  $r = mysqli_query($con, "SELECT subject.subjcode, subject.subjname, login_faculty.tname, login_faculty.meeting_url from login_faculty, subject WHERE login_faculty.id = subject.tid AND login_faculty.id='$name'") or die('Error');
+  $r = mysqli_query($con, "SELECT subject.subjcode, subject.subjname, login_faculty.id, login_faculty.tname, login_faculty.meeting_url from login_faculty, subject WHERE login_faculty.id = subject.tid AND login_faculty.id='$name'") or die('Error');
   while($ro = mysqli_fetch_array($r)){
     $a1 = $ro['subjcode'];
     $a2 = $ro['subjname'];
     $a3 = $ro['tname'];
     $a4 = $ro['meeting_url'];
-    
+
       echo '<tr><td>'.$a1.'</td><td>'.$a2.'</td><td>'.$a3.'</td><td><a href="'.$a4.' ">'.$a4.'</td></tr>';
   }
  
@@ -335,3 +297,4 @@ include('../footer.php');
 
 
 
+<!--     $name se teacher aa jaegi $q = "INSERT INTO attendance(s_email, tid) VALUES("'$sId'","$a5"');" -->

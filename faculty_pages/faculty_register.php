@@ -221,6 +221,7 @@ a {
                      $row=mysqli_query($con, $query);
                     if($row > 0)
                     {
+
                       echo "<script>alert('Click OK to proceed. ')</script>";
                       echo "<script>window.location.href='submit.html'</script>";
 

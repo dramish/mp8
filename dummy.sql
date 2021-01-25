@@ -24,6 +24,31 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE TABLE `student_timetable` (
+  `program` varchar(20) NOT NULL,
+  `branch` varchar(20) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `img` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `student_timetable` VALUES
+("BTech.", "CSE1", 8, "TT_BTech_8th_CSE2.png"), 
+("BTech.", "CSE2", 8, "TT_BTech_8th_CSE2.png"),
+("BTech.", "CSE1", 6, "TT_BTech_6th_CSE1.png"),
+("BTech.", "CSE2", 6, "TT_BTech_6th_CSE2.png"),
+("BTech.", "CSE1", 4, "TT_BTech_4th_CSE1.png"),
+("BTech.", "CSE2", 4, "TT_BTech_4th_CSE2.png");
+
+
+CREATE TABLE `attendance` (
+  `program` varchar(20) NOT NULL,
+  `branch` varchar(20) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `rollno` varchar(15) NOT NULL,
+  `tid` int(225) NOT NULL,
+  `attendno` int(100) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Table structure for table `admin`
 --
@@ -248,7 +273,7 @@ INSERT INTO `login_faculty` (`id`, `tname`, `email`, `mob`, `password`, `sec_que
 --
 
 CREATE TABLE `login_student` (
-  `stu_id` int(255) NOT NULL,
+  `stu_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `rollno` varchar(15) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -661,8 +686,6 @@ ALTER TABLE `login_faculty`
 --
 -- Indexes for table `login_student`
 --
-ALTER TABLE `login_student`
-  ADD PRIMARY KEY (`stu_id`);
 
 --
 -- Indexes for table `ques`
@@ -731,8 +754,7 @@ ALTER TABLE `login_faculty`
 --
 -- AUTO_INCREMENT for table `login_student`
 --
-ALTER TABLE `login_student`
-  MODIFY `stu_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 
 --
 -- AUTO_INCREMENT for table `subject`

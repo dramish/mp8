@@ -164,7 +164,8 @@ font-size:25px;
     <a href="student_video_conf.php"><i class="fa fa-download" aria-hidden="true"></i> Attend Class</a> 
     <a href="student_attendance_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>View Attendance</a>
     <a href="student_download_learning.php"><i class="fa fa-files-o" aria-hidden="true"></i>Download Learning Material</a>
-    <a href="student_discussion.php"><i class="fa fa-files-o" aria-hidden="true"></i>Discussion Forum</a>
+    <a href="stu_d.php"><i class="fa fa-files-o" aria-hidden="true"></i>Chking attendance table fill</a>
+    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Timetable</a>
     
   </div>
 

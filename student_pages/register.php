@@ -136,33 +136,33 @@ a {
     <select id="prog" name="progname" required>
       <option value="">Select</option>
       <option value="BTech.">BTech.</option>
-	  <option value="PhD">PhD</option>
+    <option value="PhD">PhD</option>
       <option value="MTech.">MTech.</option>
     </select>
   
 
-	<label for="branch"><b>Branch</b></label>
+  <label for="branch"><b>Branch</b></label>
   <select id="branch" name="branchname" required>
     <option value="">Select</option>
     <option value="CSE1">CSE1</option>
-	<option value="CSE2">CSE2</option>
-	<option value="IT">IT</option>
-	<option value="ECE">ECE</option>
-	<option value="MAE">MAE</option>
-	<option value="AI">AI</option>
+  <option value="CSE2">CSE2</option>
+  <option value="IT">IT</option>
+  <option value="ECE">ECE</option>
+  <option value="MAE">MAE</option>
+  <option value="AI">AI</option>
     
   </select>
 
-	<label for="sem"><b>Semester</b></label>
+  <label for="sem"><b>Semester</b></label>
   <select id="sem" name="semname" required>
     <option value="">Select</option>
     <option value="1">1</option>
     <option value="2">2</option>
-	<option value="3">3</option>
+  <option value="3">3</option>
     <option value="4">4</option>
-	<option value="5">5</option>
+  <option value="5">5</option>
     <option value="6">6</option>
-	<option value="7">7</option>
+  <option value="7">7</option>
     <option value="8">8</option>
   </select>
     
@@ -171,10 +171,10 @@ a {
       <option value="">Select</option>
       <option value="2016-2020">2016-2020</option>
       <option value="2017-2021">2017-2021</option>
-	  <option value="2018-2022">2018-2022</option>
+    <option value="2018-2022">2018-2022</option>
       <option value="2019-2023">2019-2023</option>
       <option value="2019-2021">2019-2021</option>
-	  
+    
     </select>
 
     <label for="email"><b>Email</b></label>
@@ -203,71 +203,93 @@ a {
 
 
 <?php
-				if(isset($_POST["sub"]))
-				{
-					$name=$_POST["name"];
-					$b=$_POST["eno"];
-					$c=$_POST["cno"];
-					$d=$_POST["progname"];
-					$e=$_POST["branchname"];
-					$f=$_POST["semname"];
-					$g=$_POST["batchname"];
-					$h=$_POST["email"];
-					$i=$_POST["psw"];
-					$j=$_POST["psw_repeat"];
-					
-					
-			//img start code here
-				$img=basename($_FILES["image"]["name"]);
-				$type=$_FILES["image"]["type"];
-				$size=$_FILES["image"]["size"];
-				$store=$_FILES["image"]["tmp_name"];
-				
-				//for support only image code here
-				$n=explode('.',$img);
-			$p=pathinfo("upload/".$img,PATHINFO_EXTENSION);
-			 $q=array("jpg","png","jpeg", "JPG", "PNG", "JPEG");
-				
-				 
-				  if(array_key_exists('image', $_FILES)){
+        if(isset($_POST["sub"]))
+        {
+          $name=$_POST["name"];
+          $b=$_POST["eno"];
+          $c=$_POST["cno"];
+          $d=$_POST["progname"];
+          $e=$_POST["branchname"];
+          $f=$_POST["semname"];
+          $g=$_POST["batchname"];
+          $h=$_POST["email"];
+          $i=$_POST["psw"];
+          $j=$_POST["psw_repeat"];
+          
+          
+      //img start code here
+        $img=basename($_FILES["image"]["name"]);
+        $type=$_FILES["image"]["type"];
+        $size=$_FILES["image"]["size"];
+        $store=$_FILES["image"]["tmp_name"];
+        
+        //for support only image code here
+        $n=explode('.',$img);
+      $p=pathinfo("upload/".$img,PATHINFO_EXTENSION);
+       $q=array("jpg","png","jpeg", "JPG", "PNG", "JPEG");
+        
+         
+          if(array_key_exists('image', $_FILES)){
     if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
-		
-			if(in_array($p,$q))
-			{
-					move_uploaded_file($store,"upload/".$img);
-					if($i==$j){
-					
-					
-			$query = "insert into login_student values ('', '$name' , '$b' , '$h' , '$c' , '$i', '$e', '$d', '$f' , '$g' , '$img', '', '')";
-			$roww=mysqli_query($con, $query);
-			if($roww > 0)
-			{
-				echo "<script>alert('Click OK to proceed. ')</script>";
-				echo "<script>window.location.href='security.php?e=$h'</script>";
-			}
-			else
-			{
-				echo "1";
-				echo "<script>alert('Unsuccessful.Try again or contact ADMIN!')</script>";
-			}
-					}
-					else{
-						echo "<script>alert('Password doesn't match')</script>";
-					}
-	       }
-			else
-			{
-				echo "<script>alert('Wrong picture format.Pcture format must be jpg/png/jpeg.')</script>";
-			}
+    
+      if(in_array($p,$q))
+      {
+          move_uploaded_file($store,"upload/".$img);
+          if($i==$j){
+          
+          
+      $query = "insert into login_student values ('', '$name' , '$b' , '$h' , '$c' , '$i', '$e', '$d', '$f' , '$g' , '$img', '', '')";
+      $roww=mysqli_query($con, $query);
+      if($roww > 0)
+      {
+
+$result = mysqli_query($con,"SELECT tid, login_student.program, login_student.branch, login_student.semester from coursedetails, login_student WHERE login_student.branch = coursedetails.branch AND login_student.program = coursedetails.program AND login_student.semester = coursedetails.semester AND login_student.rollno='$b'") or die('Error');
+
+while($row = mysqli_fetch_array($result)) {
+  
+  $T = $row['tid'];
+  $P = $row['program'];
+  $B = $row['branch'];
+  $S = $row['semester'];
+
+
+$que= mysqli_query($con, "SELECT * FROM attendance WHERE tid='$T' AND rollno='$b'");
+if($data=mysqli_fetch_array($que))
+        {
+             continue;
+}else{
+  $query="INSERT into attendance VALUES ('$P','$B','$S','$roll', '$T', 0)";
+    $w=mysqli_query($con, $query) or die('Error3');
+  }
+}
+
+        
+        echo "<script>alert('Click OK to proceed. ')</script>";
+        echo "<script>window.location.href='security.php?e=$h'</script>";
+      }
+      else
+      {
+        echo "1";
+        echo "<script>alert('Unsuccessful.Try again or contact ADMIN!')</script>";
+      }
+          }
+          else{
+            echo "<script>alert('Password doesn't match')</script>";
+          }
+         }
+      else
+      {
+        echo "<script>alert('Wrong picture format.Pcture format must be jpg/png/jpeg.')</script>";
+      }
 
 }
 else {
       echo "<script>alert('Image size must be less than 2 MB.')</script>";
     }
-				  }
-				}
-				
-				?>
+          }
+        }
+        
+        ?>
 
 </body>
 </html>
